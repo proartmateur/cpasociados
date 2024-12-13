@@ -1,10 +1,13 @@
 ---
+import { Picture } from "astro:assets";
+import heroImage from "assets/edificio_r.png";
 // Puedes pasar el contenido del Hero como props para mantenerlo reutilizable
 const title = "Asesoría Jurídica y Contable";
 const subtitle =
   "Soluciones integrales para optimizar tus finanzas, proteger tu empresa y cumplir con tus obligaciones legales, todo en un solo lugar y con expertos a tu lado.";
 const buttonText = "Solicita tu consulta ahora";
 const imageSrc = "/path-to-your-image.jpg";
+const imageAlt = "Edificio corporativo";
 ---
 
 <section
@@ -46,11 +49,16 @@ const imageSrc = "/path-to-your-image.jpg";
   </div>
 
   <!-- Columna de imagen -->
-  <div class="hidden md:flex">
-    <img
-      src={imageSrc}
-      alt="Edificio corporativo"
-      class="w-full h-auto rounded-lg shadow-lg"
-    />
+  <div class="hidden md:flex w-full h-full bg-[url('/edificio_r.png')]">
+    &nbsp;
+    <!-- <Picture
+      src={heroImage}
+      alt={imageAlt}
+      widths={[100, 400, 600]}
+      sizes="(max-width: 800px) 50vw, 620px"
+      loading="eager"
+      format="avif"
+      class="w-full h-auto max-h-[760px] object-contain"
+    />-->
   </div>
 </section>
