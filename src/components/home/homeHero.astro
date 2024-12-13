@@ -1,0 +1,56 @@
+---
+// Puedes pasar el contenido del Hero como props para mantenerlo reutilizable
+const title = "Asesoría Jurídica y Contable";
+const subtitle =
+  "Soluciones integrales para optimizar tus finanzas, proteger tu empresa y cumplir con tus obligaciones legales, todo en un solo lugar y con expertos a tu lado.";
+const buttonText = "Solicita tu consulta ahora";
+const imageSrc = "/path-to-your-image.jpg";
+---
+
+<section
+  class=" h-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+  <!-- Columna de texto -->
+  <div class="h-full grid grid-cols-2 lg:grid-cols-4">
+    <div class="hidden md:flex"></div>
+    <div
+      class="flex flex-col col-span-3 px-6 h-full overflow-hidden lg:overflow-visible">
+      <div class=" mb-12 mt-6">
+        <h1
+          class="text-5xl lg:text-8xl font-extrabold text-cp-blue-90 leading-tight">
+          {title}
+        </h1>
+      </div>
+      <div class="bg-cp-blue-0 p-6">
+        <p class="text-lg lg:text-2xl text-cp-blue-90">{subtitle}</p>
+      </div>
+      <div class="flex flex-col-reverse pb-12 grow ">
+        <button
+          class="
+          lg:relative
+          lg:left-[50%]
+          bg-cp-blue-90
+           w-full 
+           font-semibold 
+           uppercase
+         text-cp-blue-20 
+         py-3 
+         px-6
+          hover:bg-blue-800 
+          transition 
+          duration-300">
+          {buttonText}
+        </button>
+      </div>
+    </div>
+    <div class="hidden "></div>
+  </div>
+
+  <!-- Columna de imagen -->
+  <div class="hidden md:flex">
+    <img
+      src={imageSrc}
+      alt="Edificio corporativo"
+      class="w-full h-auto rounded-lg shadow-lg"
+    />
+  </div>
+</section>

@@ -1,0 +1,89 @@
+---
+// Importa cualquier dato si es necesario, como enlaces desde un archivo externo
+const links = [
+  { name: "Inicio", href: "/" },
+  { name: "Servicios", href: "/#services" },
+  { name: "Nosotros", href: "/about" },
+  { name: "Contacto", href: "/contact" },
+];
+---
+
+<nav class="bg-white shadow-md">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img
+            class="h-8 w-auto"
+            src="/logo.png"
+            alt="Logo de Carbellido Pérez & Asociados"
+          />
+        </a>
+      </div>
+
+      <!-- Nav Links for Desktop -->
+      <div class="hidden md:flex space-x-8">
+        {links.map((link) => (
+          <a
+            href={link.href}
+            class="text-gray-700 hover:text-blue-600 transition duration-300"
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button
+          id="menu-toggle"
+          class="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700"
+          onclick="toggleMenu()"
+        >
+          <svg
+            class="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Links -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden flex flex-col space-y-1 mt-2"
+    >
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="block text-gray-700 hover:text-blue-600 py-2 px-4 transition duration-300"
+        >
+          {link.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu.classList.contains('hidden')) {
+      menu.classList.remove('hidden');
+    } else {
+      menu.classList.add('hidden');
+    }
+  }
+</script>
